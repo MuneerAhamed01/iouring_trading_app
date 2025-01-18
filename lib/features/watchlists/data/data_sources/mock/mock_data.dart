@@ -7,6 +7,46 @@ List<StockModel> mockStocks({
   // Mock stock data
   final List<StockModel> stocks = [
     StockModel(
+      id: 'GOLD26JUL59500CE',
+      name: 'GOLD 26JUL 59500 CE',
+      exchangeType: 'MCX',
+      currentPrice: 298.50,
+      previousTradeSessionPrice: 275.00, // Calculated from +23.50 change
+      shareHoldByUser: 0,
+    ),
+    StockModel(
+      id: 'ACCELYA',
+      name: 'ACCELYA',
+      exchangeType: 'NSE',
+      currentPrice: 1337.70,
+      previousTradeSessionPrice: 1336.65, // Calculated from +1.05 change
+      shareHoldByUser: 0,
+    ),
+    StockModel(
+      id: 'ACC',
+      name: 'ACC',
+      exchangeType: 'BSE',
+      currentPrice: 1795.20,
+      previousTradeSessionPrice: 1768.00, // Calculated from +27.20 change
+      shareHoldByUser: 400,
+    ),
+    StockModel(
+      id: 'ACC',
+      name: 'ACC Limited',
+      exchangeType: 'NSE',
+      currentPrice: 1792.30,
+      previousTradeSessionPrice: 1766.90, // Calculated from +25.40 change
+      shareHoldByUser: 400,
+    ),
+    StockModel(
+      id: 'RELIANCE',
+      name: 'Reliance Industries',
+      exchangeType: 'NSE',
+      currentPrice: 2452.35,
+      previousTradeSessionPrice: 2438.50,
+      shareHoldByUser: 20,
+    ),
+    StockModel(
       id: 'RELIANCE',
       name: 'Reliance Industries',
       exchangeType: 'NSE',

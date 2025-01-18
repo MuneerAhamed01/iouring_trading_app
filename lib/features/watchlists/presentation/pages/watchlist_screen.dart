@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:iouring_trading_app/config/theme/colors.dart';
 import 'package:iouring_trading_app/core/utils/images.dart';
 import 'package:iouring_trading_app/dependency_injection.dart';
+import 'package:iouring_trading_app/features/watchlists/domain/entities/stock.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_bloc/watch_lists_bloc.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_search_bloc/watchlist_search_bloc.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/pages/watchlist_search.dart';
@@ -88,55 +89,11 @@ class _WatchListPageState extends State<WatchListPage>
                         return SingleChildScrollView(
                           child: Column(
                             children: [
-                              ListView.separated(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemBuilder: (_, index) => StockTile(
-                                  stockName: watchLists[index].name,
-                                  stockExchange: watchLists[index].exchangeType,
-                                  currentPrice: watchLists[index].currentPrice,
-                                  lastPrice: watchLists[index]
-                                      .previousTradeSessionPrice,
-                                  holedStocks:
-                                      watchLists[index].shareHoldByUser,
-                                ),
-                                separatorBuilder: (_, __) => Container(
-                                  margin: EdgeInsets.only(top: 4),
-                                  width: double.infinity,
-                                  height: 0.29,
-                                  color:
-                                      MyColors.iconGrey.withValues(alpha: 0.8),
-                                ),
-                                itemCount: watchLists.length,
-                              ),
+                              _buildStockList(watchLists),
                               SizedBox(height: 20),
-                              Text(
-                                "4 / 50 Stocks",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              _buildPerPageCount(),
                               SizedBox(height: 20),
-                              ElevatedButton.icon(
-                                onPressed: () {},
-                                icon: SvgPicture.asset(
-                                  kSvgsEdit,
-                                  height: 20,
-                                  width: 20,
-                                  colorFilter: ColorFilter.mode(
-                                    MyColors.primary,
-                                    BlendMode.srcIn,
-                                  ),
-                                ),
-                                label: Text(
-                                  'Edit Watchlist',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              )
+                              _buildEditWatchlistButton()
                             ],
                           ),
                         );
@@ -149,6 +106,59 @@ class _WatchListPageState extends State<WatchListPage>
           },
         ),
       ),
+    );
+  }
+
+  ElevatedButton _buildEditWatchlistButton() {
+    return ElevatedButton.icon(
+      onPressed: () {},
+      icon: SvgPicture.asset(
+        kSvgsEdit,
+        height: 20,
+        width: 20,
+        colorFilter: ColorFilter.mode(
+          MyColors.primary,
+          BlendMode.srcIn,
+        ),
+      ),
+      label: Text(
+        'Edit Watchlist',
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Text _buildPerPageCount() {
+    return Text(
+      "4 / 50 Stocks",
+      style: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  ListView _buildStockList(List<StockEntity> watchLists) {
+    return ListView.separated(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemBuilder: (_, index) => StockTile(
+        stockName: watchLists[index].name,
+        stockExchange: watchLists[index].exchangeType,
+        currentPrice: watchLists[index].currentPrice,
+        lastPrice: watchLists[index].previousTradeSessionPrice,
+        holedStocks: watchLists[index].shareHoldByUser,
+      ),
+      separatorBuilder: (_, __) => Container(
+        margin: EdgeInsets.only(top: 4),
+        width: double.infinity,
+        height: 0.29,
+        color: MyColors.iconGrey.withValues(alpha: 0.8),
+      ),
+      itemCount: watchLists.length,
     );
   }
 

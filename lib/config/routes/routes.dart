@@ -21,6 +21,7 @@ CustomTransitionPage<void> _buildTransitionPage({
   return CustomTransitionPage(
     key: state.pageKey,
     child: child,
+    transitionDuration: Duration(milliseconds: 100),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
@@ -57,7 +58,12 @@ final routes = GoRouter(
           pageBuilder: (context, state) => _buildTransitionPage(
             context: context,
             state: state,
-            child: Text('Orders'),
+            child: Center(
+              child: Text(
+                'Orders',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
         ),
         GoRoute(
@@ -65,7 +71,12 @@ final routes = GoRouter(
           pageBuilder: (context, state) => _buildTransitionPage(
             context: context,
             state: state,
-            child: Text('Portolio'),
+            child: Center(
+              child: Text(
+                'Portolio',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
         ),
         GoRoute(
@@ -73,7 +84,11 @@ final routes = GoRouter(
           pageBuilder: (context, state) => _buildTransitionPage(
             context: context,
             state: state,
-            child: Text('Movers'),
+            child: Center(
+                child: Text(
+              'Movers',
+              style: TextStyle(color: Colors.white),
+            )),
           ),
         ),
         GoRoute(
@@ -81,7 +96,11 @@ final routes = GoRouter(
           pageBuilder: (context, state) => _buildTransitionPage(
             context: context,
             state: state,
-            child: Text('More'),
+            child: Center(
+                child: Text(
+              'More',
+              style: TextStyle(color: Colors.white),
+            )),
           ),
         ),
       ],

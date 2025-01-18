@@ -23,9 +23,16 @@ class StockTile extends StatelessWidget {
 
   final double lastPrice;
 
-  double get _percentage => 9.5;
+  String get _increasedBy {
+    double increase = currentPrice - lastPrice;
+    return increase.toStringAsFixed(2);
+  }
 
-  double get _increasedBy => 23.55;
+  String get _percentage {
+    double percentageChange = ((currentPrice - lastPrice) / lastPrice) * 100;
+
+    return percentageChange.toStringAsFixed(2);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +126,7 @@ class StockTile extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 8),
-        if (holedStocks != null) ...[
+        if (holedStocks != null && holedStocks != 0) ...[
           SvgPicture.asset(
             kSvgsInactivePortfolio,
             width: 14,
