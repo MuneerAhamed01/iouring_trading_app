@@ -52,56 +52,60 @@ class _WatchListPageState extends State<WatchListPage>
       body: SafeArea(
         child: BlocBuilder<WatchListsBloc, WatchListsState>(
           builder: (context, state) {
-            return Column(
-              children: [
-                SizedBox(height: 10),
-                Hero(
-                  tag: 'search-watchlist',
-                  child: MySearchfield(
-                    isDisabled: true,
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => BlocProvider<WatchlistSearchBloc>(
-                            create: (context) => getIt(),
-                            child: WatchlistSearch(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: List.generate(
-                      4,
-                      (tabIndex) {
-                        final watchLists = {
-                          0: state.allWatchLists,
-                          1: state.niftyWatchLists,
-                          2: state.bseWatchLists,
-                          3: state.sensexWatchLists,
-                        }[tabIndex];
-                        if (watchLists == null || watchLists.isEmpty) {
-                          return _buildLoading();
-                        }
-                        return SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              _buildStockList(watchLists),
-                              SizedBox(height: 20),
-                              _buildPerPageCount(),
-                              SizedBox(height: 20),
-                              _buildEditWatchlistButton()
-                            ],
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                children: [
+                  SizedBox(height: 10),
+                  Hero(
+                    tag: 'search-watchlist',
+                    child: MySearchfield(
+                      isDisabled: true,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => BlocProvider<WatchlistSearchBloc>(
+                              create: (context) => getIt(),
+                              child: WatchlistSearch(),
+                            ),
                           ),
                         );
                       },
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: List.generate(
+                        4,
+                        (tabIndex) {
+                          final watchLists = {
+                            0: state.allWatchLists,
+                            1: state.niftyWatchLists,
+                            2: state.bseWatchLists,
+                            3: state.sensexWatchLists,
+                          }[tabIndex];
+                          if (watchLists == null || watchLists.isEmpty) {
+                            return _buildLoading();
+                          }
+                          return SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                _buildStockList(watchLists),
+                                SizedBox(height: 20),
+                                _buildPerPageCount(),
+                                SizedBox(height: 20),
+                                _buildEditWatchlistButton(),
+                                SizedBox(height: 20),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         ),

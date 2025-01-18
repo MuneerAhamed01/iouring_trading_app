@@ -50,6 +50,7 @@ class _WatchlistSearchState extends State<WatchlistSearch> {
             }
 
             return ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 10),
               shrinkWrap: true,
               itemBuilder: (_, index) => StockTile(
                 stockName: state.searchedStocks![index].name,

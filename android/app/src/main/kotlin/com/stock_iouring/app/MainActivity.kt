@@ -1,4 +1,4 @@
-package com.example.iouring_trading_app
+package com.stock_iouring.app
 
 import io.flutter.embedding.android.FlutterActivity
 
