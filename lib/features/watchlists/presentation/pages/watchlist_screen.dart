@@ -85,62 +85,65 @@ class _WatchListPageState extends State<WatchListPage>
                         if (watchLists == null || watchLists.isEmpty) {
                           return _buildLoading();
                         }
-                        return ListView.separated(
-                          shrinkWrap: true,
-                          itemBuilder: (_, index) => StockTile(
-                            stockName: watchLists[index].name,
-                            stockExchange: watchLists[index].exchangeType,
-                            currentPrice: watchLists[index].currentPrice,
-                            lastPrice:
-                                watchLists[index].previousTradeSessionPrice,
-                            holedStocks: watchLists[index].shareHoldByUser,
+                        return SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ListView.separated(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemBuilder: (_, index) => StockTile(
+                                  stockName: watchLists[index].name,
+                                  stockExchange: watchLists[index].exchangeType,
+                                  currentPrice: watchLists[index].currentPrice,
+                                  lastPrice: watchLists[index]
+                                      .previousTradeSessionPrice,
+                                  holedStocks:
+                                      watchLists[index].shareHoldByUser,
+                                ),
+                                separatorBuilder: (_, __) => Container(
+                                  margin: EdgeInsets.only(top: 4),
+                                  width: double.infinity,
+                                  height: 0.29,
+                                  color:
+                                      MyColors.iconGrey.withValues(alpha: 0.8),
+                                ),
+                                itemCount: watchLists.length,
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                "4 / 50 Stocks",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              ElevatedButton.icon(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  kSvgsEdit,
+                                  height: 20,
+                                  width: 20,
+                                  colorFilter: ColorFilter.mode(
+                                    MyColors.primary,
+                                    BlendMode.srcIn,
+                                  ),
+                                ),
+                                label: Text(
+                                  'Edit Watchlist',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-                          separatorBuilder: (_, __) => Container(
-                            margin: EdgeInsets.only(top: 4),
-                            width: double.infinity,
-                            height: 0.29,
-                            color: MyColors.iconGrey.withValues(alpha: 0.8),
-                          ),
-                          itemCount: watchLists.length,
                         );
                       },
                     ),
                   ),
                 ),
-                // StockTile(
-                //   stockName: "MRF",
-                //   stockExchange: "NSE",
-                //   currentPrice: 299.46,
-                //   lastPrice: 100.20,
-                //   holedStocks: 40,
-                // ),
-                // SizedBox(height: 10),
-                // Text(
-                //   "4 / 50 Stocks",
-                //   style: TextStyle(
-                //     color: Colors.white,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-                // ElevatedButton.icon(
-                //   onPressed: () {},
-                //   icon: SvgPicture.asset(
-                //     kSvgsEdit,
-                //     height: 20,
-                //     width: 20,
-                //     colorFilter: ColorFilter.mode(
-                //       MyColors.primary,
-                //       BlendMode.srcIn,
-                //     ),
-                //   ),
-                //   label: Text(
-                //     'Edit Watchlist',
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                // )
               ],
             );
           },
