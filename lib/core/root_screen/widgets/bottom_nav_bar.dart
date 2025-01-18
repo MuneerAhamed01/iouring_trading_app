@@ -19,24 +19,21 @@ class MyBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final activeIndex =
         _items.indexWhere((e) => (e.key as ValueKey).value == activeRoute);
-    return SizedBox(
-      height: 110,
-      child: BottomNavigationBar(
-        currentIndex: activeIndex,
-        onTap: (index) => onTap((_items[index].key as ValueKey).value),
-        backgroundColor: MyColors.bottomNavBackground,
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: 12,
-        selectedLabelStyle: TextStyle(
-          fontWeight: FontWeight.w600,
-          height: 2,
-        ),
-        unselectedLabelStyle: TextStyle(
-          fontWeight: FontWeight.w600,
-          height: 2,
-        ),
-        items: _items,
+    return BottomNavigationBar(
+      currentIndex: activeIndex,
+      onTap: (index) => onTap((_items[index].key as ValueKey).value),
+      backgroundColor: MyColors.bottomNavBackground,
+      type: BottomNavigationBarType.fixed,
+      selectedFontSize: 12,
+      selectedLabelStyle: TextStyle(
+        fontWeight: FontWeight.w600,
+        height: 2,
       ),
+      unselectedLabelStyle: TextStyle(
+        fontWeight: FontWeight.w600,
+        height: 2,
+      ),
+      items: _items,
     );
   }
 

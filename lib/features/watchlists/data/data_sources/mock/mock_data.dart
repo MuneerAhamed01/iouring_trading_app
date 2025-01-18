@@ -47,14 +47,6 @@ List<StockModel> mockStocks({
       shareHoldByUser: 20,
     ),
     StockModel(
-      id: 'RELIANCE',
-      name: 'Reliance Industries',
-      exchangeType: 'NSE',
-      currentPrice: 2452.35,
-      previousTradeSessionPrice: 2438.50,
-      shareHoldByUser: 20,
-    ),
-    StockModel(
       id: 'TCS',
       name: 'Tata Consultancy Services',
       exchangeType: 'BSE',

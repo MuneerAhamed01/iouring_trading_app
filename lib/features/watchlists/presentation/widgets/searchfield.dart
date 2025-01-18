@@ -11,6 +11,7 @@ class MySearchfield extends StatelessWidget {
     this.showActions = true,
     this.isDisabled = false,
     this.onTap,
+    this.autoFocus = false,
   });
 
   final TextEditingController? controller;
@@ -18,11 +19,13 @@ class MySearchfield extends StatelessWidget {
   final bool showActions;
   final VoidCallback? onTap;
   final bool isDisabled;
+  final bool autoFocus;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: onTap,
+      autofocus: autoFocus,
       readOnly: isDisabled,
       controller: controller,
       style: TextStyle(color: Colors.white),

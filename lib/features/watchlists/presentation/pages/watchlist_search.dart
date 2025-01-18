@@ -92,6 +92,7 @@ class _WatchlistSearchState extends State<WatchlistSearch> {
             tag: 'search-watchlist',
             child: MySearchfield(
               controller: _textController,
+              autoFocus: true,
             ),
           ),
         ),
