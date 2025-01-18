@@ -1,5 +1,6 @@
 import 'package:iouring_trading_app/features/watchlists/data/data_sources/mock/watchlists_service.dart';
-import 'package:iouring_trading_app/features/watchlists/data/models/stock.dart';
+import 'package:iouring_trading_app/features/watchlists/domain/entities/stock.dart';
+import 'package:iouring_trading_app/features/watchlists/domain/params/get_watchlist_params.dart';
 import 'package:iouring_trading_app/features/watchlists/domain/repository/watchlists_repository.dart';
 
 class WatchListsRepositoryImpl extends WatchListsRepository {
@@ -7,11 +8,12 @@ class WatchListsRepositoryImpl extends WatchListsRepository {
 
   WatchListsRepositoryImpl({required WatchListsService watchListsService})
       : _watchListsService = watchListsService;
+
   @override
-  List<StockModel> getWatchLists({String? type, String? searchQuery}) {
+  List<StockEntity> getWatchLists({required GetWatchListParams param}) {
     final data = _watchListsService.getWatchLists(
-      type: type,
-      searchQuery: searchQuery,
+      type: param.exchangeType,
+      searchQuery: param.searchQuery,
     );
 
     return data;

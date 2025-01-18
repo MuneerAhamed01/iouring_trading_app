@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iouring_trading_app/config/routes/routes_name.dart';
 import 'package:iouring_trading_app/core/root_screen/cubit/bottomnav_cubit.dart';
 import 'package:iouring_trading_app/core/root_screen/screens/root_screen.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/pages/watchlist_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -41,7 +42,7 @@ final routes = GoRouter(
           pageBuilder: (context, state) => _buildTransitionPage(
             context: context,
             state: state,
-            child: Text('Watchlist'),
+            child: WatchListPage(),
           ),
         ),
         GoRoute(
