@@ -1,11 +1,12 @@
 // Generated file. Do not edit.
-// Generated on 2025-01-18 12:08:37.807508
+// Generated on 2025-01-18 14:14:36.297985
 
 const String kSvgsActiveHome = 'assets/svgs/active_home.svg';
 const String kSvgsActiveMore = 'assets/svgs/active_more.svg';
 const String kSvgsActiveMovers = 'assets/svgs/active_movers.svg';
 const String kSvgsActiveOrders = 'assets/svgs/active_orders.svg';
 const String kSvgsActivePortfolio = 'assets/svgs/active_portfolio.svg';
+const String kSvgsEdit = 'assets/svgs/edit.svg';
 const String kSvgsFilter = 'assets/svgs/filter.svg';
 const String kSvgsInactiveHome = 'assets/svgs/inactive_home.svg';
 const String kSvgsInactiveMore = 'assets/svgs/inactive_more.svg';

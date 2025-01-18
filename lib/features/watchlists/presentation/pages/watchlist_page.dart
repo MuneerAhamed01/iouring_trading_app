@@ -26,6 +26,33 @@ class WatchListPage extends StatelessWidget {
                 lastPrice: 100.20,
                 holedStocks: 40,
               ),
+              SizedBox(height: 10),
+              Text(
+                "4 / 50 Stocks",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  kSvgsEdit,
+                  height: 20,
+                  width: 20,
+                  colorFilter: ColorFilter.mode(
+                    MyColors.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                label: Text(
+                  'Edit Watchlist',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
             ],
           ),
         ),

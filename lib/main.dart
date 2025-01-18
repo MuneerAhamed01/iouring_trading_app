@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iouring_trading_app/config/routes/routes.dart';
 import 'package:iouring_trading_app/config/theme/colors.dart';
+import 'package:iouring_trading_app/config/theme/elevated_button.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,13 +17,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData.dark(useMaterial3: false).copyWith(
         textTheme: GoogleFonts.poppinsTextTheme(),
         scaffoldBackgroundColor: MyColors.scaffoldBackground,
-        listTileTheme: ListTileThemeData(
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
-          ),
-        ),
+        elevatedButtonTheme: MyElevatedButtonThemeData(),
       ),
       routerConfig: routes,
     );
