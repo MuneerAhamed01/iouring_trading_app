@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:iouring_trading_app/config/theme/colors.dart';
 import 'package:iouring_trading_app/core/utils/images.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/widgets/searchfield.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/widgets/stock_tile.dart';
 
 class WatchListPage extends StatelessWidget {
   const WatchListPage({super.key});
@@ -18,6 +19,13 @@ class WatchListPage extends StatelessWidget {
             children: [
               SizedBox(height: 10),
               MySearchfield(),
+              StockTile(
+                stockName: "MRF",
+                stockExchange: "NSE",
+                currentPrice: 299.46,
+                lastPrice: 100.20,
+                holedStocks: 40,
+              ),
             ],
           ),
         ),

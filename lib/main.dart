@@ -16,6 +16,13 @@ class MainApp extends StatelessWidget {
       theme: ThemeData.dark(useMaterial3: false).copyWith(
         textTheme: GoogleFonts.poppinsTextTheme(),
         scaffoldBackgroundColor: MyColors.scaffoldBackground,
+        listTileTheme: ListTileThemeData(
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+          ),
+        ),
       ),
       routerConfig: routes,
     );
