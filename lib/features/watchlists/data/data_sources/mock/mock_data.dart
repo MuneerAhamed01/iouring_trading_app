@@ -12,6 +12,7 @@ List<StockModel> mockStocks({
       exchangeType: 'NSE',
       currentPrice: 2452.35,
       previousTradeSessionPrice: 2438.50,
+      shareHoldByUser: 20,
     ),
     StockModel(
       id: 'TCS',
@@ -26,6 +27,7 @@ List<StockModel> mockStocks({
       exchangeType: 'NSE',
       currentPrice: 1536.20,
       previousTradeSessionPrice: 1529.45,
+      shareHoldByUser: 40,
     ),
     StockModel(
       id: 'HDFCBANK',

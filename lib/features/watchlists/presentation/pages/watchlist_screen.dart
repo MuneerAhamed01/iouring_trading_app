@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iouring_trading_app/config/theme/colors.dart';
 import 'package:iouring_trading_app/core/utils/images.dart';
-import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watch_lists_bloc.dart';
+import 'package:iouring_trading_app/dependency_injection.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_bloc/watch_lists_bloc.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_search_bloc/watchlist_search_bloc.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/pages/watchlist_search.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/widgets/searchfield.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/widgets/stock_tile.dart';
 
@@ -51,7 +54,22 @@ class _WatchListPageState extends State<WatchListPage>
             return Column(
               children: [
                 SizedBox(height: 10),
-                MySearchfield(),
+                Hero(
+                  tag: 'search-watchlist',
+                  child: MySearchfield(
+                    isDisabled: true,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => BlocProvider<WatchlistSearchBloc>(
+                            create: (context) => getIt(),
+                            child: WatchlistSearch(),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 Expanded(
                   child: TabBarView(
                     controller: _tabController,
@@ -75,7 +93,7 @@ class _WatchListPageState extends State<WatchListPage>
                             currentPrice: watchLists[index].currentPrice,
                             lastPrice:
                                 watchLists[index].previousTradeSessionPrice,
-                            // holedStocks: 40,
+                            holedStocks: watchLists[index].shareHoldByUser,
                           ),
                           separatorBuilder: (_, __) => Container(
                             margin: EdgeInsets.only(top: 4),

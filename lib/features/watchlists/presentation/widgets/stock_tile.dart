@@ -130,8 +130,8 @@ class StockTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          const Text(
-            '400',
+          Text(
+            holedStocks?.toString() ?? '',
             style: TextStyle(
               fontWeight: FontWeight.w600,
               color: Colors.white,

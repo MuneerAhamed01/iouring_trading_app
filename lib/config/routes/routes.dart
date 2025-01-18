@@ -5,8 +5,10 @@ import 'package:iouring_trading_app/config/routes/routes_name.dart';
 import 'package:iouring_trading_app/core/root_screen/cubit/bottomnav_cubit.dart';
 import 'package:iouring_trading_app/core/root_screen/screens/root_screen.dart';
 import 'package:iouring_trading_app/dependency_injection.dart';
-import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watch_lists_bloc.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_bloc/watch_lists_bloc.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/bloc/watchlist_search_bloc/watchlist_search_bloc.dart';
 import 'package:iouring_trading_app/features/watchlists/presentation/pages/watchlist_screen.dart';
+import 'package:iouring_trading_app/features/watchlists/presentation/pages/watchlist_search.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -83,6 +85,15 @@ final routes = GoRouter(
           ),
         ),
       ],
+    ),
+    GoRoute(
+      path: kRouteWatchListSearch,
+      pageBuilder: (context, __) => MaterialPage(
+        child: BlocProvider<WatchlistSearchBloc>(
+          create: (context) => getIt(),
+          child: WatchlistSearch(),
+        ),
+      ),
     ),
   ],
 );

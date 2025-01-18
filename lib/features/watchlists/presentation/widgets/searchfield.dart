@@ -9,15 +9,21 @@ class MySearchfield extends StatelessWidget {
     this.controller,
     this.hintText = "Search & Add",
     this.showActions = true,
+    this.isDisabled = false,
+    this.onTap,
   });
 
   final TextEditingController? controller;
   final String hintText;
   final bool showActions;
+  final VoidCallback? onTap;
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
+      readOnly: isDisabled,
       controller: controller,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(

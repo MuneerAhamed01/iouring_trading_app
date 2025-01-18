@@ -7,8 +7,10 @@ class StockModel extends StockEntity {
     required super.exchangeType,
     required super.currentPrice,
     required super.previousTradeSessionPrice,
+    super.shareHoldByUser,
   });
 
+  /// NOT USED
   factory StockModel.fromJson(Map<String, dynamic> json) {
     return StockModel(
       id: json['id'] as String,
@@ -16,10 +18,11 @@ class StockModel extends StockEntity {
       exchangeType: json['exchangeType'] as String,
       currentPrice: json['currentPrice'] as double,
       previousTradeSessionPrice: json['previousTradeSessionPrice'] as double,
+      shareHoldByUser: json['shareHoldByUser'] as int?,
     );
   }
 
-  /// Converts a `StockModel` instance to JSON
+  /// NOT USED
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -27,6 +30,7 @@ class StockModel extends StockEntity {
       'exchangeType': exchangeType,
       'currentPrice': currentPrice,
       'previousTradeSessionPrice': previousTradeSessionPrice,
+      "shareHoldByUser": shareHoldByUser,
     };
   }
 }

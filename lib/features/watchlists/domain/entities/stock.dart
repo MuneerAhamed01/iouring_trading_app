@@ -4,6 +4,7 @@ class StockEntity {
   final String exchangeType;
   final double currentPrice;
   final double previousTradeSessionPrice;
+  final int? shareHoldByUser;
 
   StockEntity({
     required this.id,
@@ -11,5 +12,6 @@ class StockEntity {
     required this.exchangeType,
     required this.currentPrice,
     required this.previousTradeSessionPrice,
+    this.shareHoldByUser,
   });
 }
