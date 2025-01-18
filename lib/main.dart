@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iouring_trading_app/config/routes/routes.dart';
 import 'package:iouring_trading_app/config/theme/colors.dart';
 import 'package:iouring_trading_app/config/theme/elevated_button.dart';
+import 'package:iouring_trading_app/dependency_injection.dart';
 
-void main() {
+Future<void> main() async {
+  await injectDependencies();
   runApp(const MainApp());
 }
 

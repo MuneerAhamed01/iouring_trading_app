@@ -8,14 +8,7 @@ abstract class WatchListsEvent {
 
 class GetAllWatchList extends WatchListsEvent {}
 
-class GetNiftyWatchList extends WatchListsEvent {
-  GetNiftyWatchList({super.exchangeType = "NSE"});
-}
-
-class GetBSEWatchList extends WatchListsEvent {
-  GetBSEWatchList({super.exchangeType = "BSE"});
-}
-
-class GetSenSexWatchList extends WatchListsEvent {
-  GetSenSexWatchList({super.exchangeType = "SENSEX"});
+class GetTypedWatchList extends WatchListsEvent {
+  final String type;
+  GetTypedWatchList({required this.type}) : super(exchangeType: type);
 }

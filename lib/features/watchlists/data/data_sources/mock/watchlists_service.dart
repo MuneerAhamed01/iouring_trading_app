@@ -1,7 +1,8 @@
+import 'package:iouring_trading_app/features/watchlists/data/data_sources/mock/mock_data.dart';
 import 'package:iouring_trading_app/features/watchlists/data/models/stock.dart';
 
-abstract class WatchListsService {
+class WatchListsService {
   List<StockModel> getWatchLists({String? type, String? searchQuery}) {
-    return [];
+    return mockStocks(exchange: type, searchQuery: searchQuery);
   }
 }

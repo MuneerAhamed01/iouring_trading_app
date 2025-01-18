@@ -14,7 +14,14 @@ abstract class WatchListsState {
   });
 }
 
-class WatchListsLoading extends WatchListsState {}
+class WatchListsLoading extends WatchListsState {
+  WatchListsLoading({
+    super.allWatchLists,
+    super.niftyWatchLists,
+    super.bseWatchLists,
+    super.sensexWatchLists,
+  });
+}
 
 class WatchListsDone extends WatchListsState {
   WatchListsDone({
